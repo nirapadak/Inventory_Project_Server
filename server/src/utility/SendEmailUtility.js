@@ -1,8 +1,8 @@
 const nodemailer = require('nodemailer');
 const path = require('path');
-const hbs = require('nodemailer-express-handlebars');
-const viewPath =  path.resolve(__dirname, '../template/views/');
-const partialsPath = path.resolve(__dirname, '../template/partials/');
+// const hbs = require('nodemailer-express-handlebars');
+// const viewPath =  path.resolve(__dirname, '../template/views/');
+// const partialsPath = path.resolve(__dirname, '../template/partials/');
 
 const SendEmailUtility= async (EmailTo, EmailText, EmailSubject) => {
 
@@ -15,27 +15,27 @@ const SendEmailUtility= async (EmailTo, EmailText, EmailSubject) => {
         }
     });
 
-    transporter.use('compile', hbs({
-        viewEngine: {
-            extName: '.handlebars',
-            // partialsDir: viewPath,
-            layoutsDir: viewPath,
-            defaultLayout: false,
-            partialsDir: partialsPath,
-        },
-        viewPath: viewPath,
-        extName: '.handlebars',
-    }));
+    // transporter.use('compile', hbs({
+    //     viewEngine: {
+    //         extName: '.handlebars',
+    //         // partialsDir: viewPath,
+    //         layoutsDir: viewPath,
+    //         defaultLayout: false,
+    //         partialsDir: partialsPath,
+    //     },
+    //     viewPath: viewPath,
+    //     extName: '.handlebars',
+    // }));
     
     let mailOptions = {
         from: process.env.FROM_EMAIL,
         to: EmailTo,
         subject: EmailSubject,
         text: EmailText,
-        template: 'index',
-        attachments: [
-            { filename: 'abc.jpg', path: path.resolve(__dirname, '../template/image/abc.jpg')}
-        ]
+        // template: 'index',
+        // attachments: [
+        //     { filename: 'abc.jpg', path: path.resolve(__dirname, '../template/image/abc.jpg')}
+        // ]
     };
 
     

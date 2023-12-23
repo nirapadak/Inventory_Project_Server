@@ -33,7 +33,7 @@ exports.register = async (req, res) => {
 
    // Otp sends a Request ---------
     let code = Math.floor(100000 + Math.random() * 900000);
-   let EmailText = `Hi ${name}<br><br>Welcome to myApplication <br> Email Verification Code is<Button>${code}<Button/> Thanks for signing `;
+   let EmailText = `Hi ${name} Welcome to myApplication \nEmail Verification Code is ${code} \n Thanks for signing`;
    
    await SendEmailUtility(email, EmailText, "Email Verification Code");
 
